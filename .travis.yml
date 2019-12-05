@@ -42,6 +42,12 @@ matrix:
         - xvfb
       env: CI_SCRIPT=ci/system-test.sh
 
+    - stage: browserstack
+      jdk: openjdk8
+      branches:
+        only:
+          - master
+      env: CI_SCRIPT=ci/browserstack.sh
 script:
   - "chmod -R +x ci"
   - "$CI_SCRIPT"
