@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [ 8, 11, 14 ]
+        java: [ 8 ]
     steps:
       - uses: actions/checkout@v1
       - uses: actions/cache@v1
@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [ 8, 11, 14 ]
+        java: [ 8 ]
     steps:
       - uses: actions/checkout@v1
       - uses: actions/cache@v1
@@ -62,7 +62,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [ 8, 11, 14 ]
+        java: [ 8 ]
     steps:
       - uses: actions/checkout@v1
       - uses: actions/cache@v1
@@ -92,8 +92,7 @@ jobs:
           path: jbehave-support-core/target/site/jacoco-it/jacoco.xml
 
   sonar:
-    name: Sonar integration
-    if: github.ref == 'refs/heads/master' && github.repository == 'EmbedITCZ/jbehave-support'
+    name: artifact tests
     needs: [ build, test, system-test ]
     runs-on: ubuntu-latest
     steps:
@@ -112,5 +111,7 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      - name: Run Maven
-        run: mvn package -DskipTests org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=EmbedITCZ_jbehave-support -Dsonar.organization=embeditcz -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.coverage.jacoco.xmlReportPaths=/home/runner/work/jbehave-support/jbehave-support/jacoco/jacoco.xml,/home/runner/work/jbehave-support/jbehave-support/jacoco-it/jacoco.xml -e -X
+      - name: Run LS
+        run: |
+          ls -l /home/runner/work/jbehave-support/jbehave-support/jacoco/jacoco.xml
+          ls -l /home/runner/work/jbehave-support/jbehave-support/jacoco-it/jacoco.xml
