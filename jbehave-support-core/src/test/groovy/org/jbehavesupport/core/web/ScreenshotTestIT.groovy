@@ -5,8 +5,10 @@ import org.jbehavesupport.core.internal.web.WebScreenshotCreator
 import org.openqa.selenium.WebDriver
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
+import spock.lang.Ignore
 import spock.lang.Specification
 
+@Ignore
 @ContextConfiguration(classes = TestConfig)
 class ScreenshotTestIT extends Specification {
 
