@@ -8,7 +8,7 @@ import org.springframework.test.context.ContextConfiguration
 import spock.lang.Ignore
 import spock.lang.Specification
 
-@Ignore
+//@Ignore
 @ContextConfiguration(classes = TestConfig)
 class ScreenshotTestIT extends Specification {
 
@@ -21,7 +21,7 @@ class ScreenshotTestIT extends Specification {
     void takesScreenshot() {
         when:
 
-        driver.get("https://google.com")
+        driver.get("http://localhost:11110")
         webScreenshotCreator.createScreenshot(WebScreenshotType.MANUAL)
 
         then:
