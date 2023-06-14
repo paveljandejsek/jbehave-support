@@ -22,6 +22,7 @@ class ScreenshotTestIT extends Specification {
         when:
 
         driver.get("http://localhost:11110")
+        log.warn("WebDriver: {}", driver);
         def title = driver.getTitle();
         log.warn("page title {}", title);
 
