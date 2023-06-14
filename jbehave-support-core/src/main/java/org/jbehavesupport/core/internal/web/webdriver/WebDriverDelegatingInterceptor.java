@@ -87,6 +87,7 @@ public class WebDriverDelegatingInterceptor extends IntroductionInfoSupport
         }
 
         if (isQuitMethod(mi)) {
+            log.warn("doProceed sets driver to null, {}, {}", driver, mi);
             driver = null;
         }
 
@@ -97,6 +98,7 @@ public class WebDriverDelegatingInterceptor extends IntroductionInfoSupport
     public void quit() {
         if (driver != null) {
             driver.quit();
+            log.warn("quit sets driver to null, {}", driver);
             driver = null;
         }
     }

@@ -1,6 +1,5 @@
 package org.jbehavesupport.core.internal.web;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.codehaus.plexus.util.FileUtils;
 import org.openqa.selenium.NoAlertPresentException;
@@ -23,7 +22,6 @@ import java.util.Set;
 
 @Slf4j
 @Component
-@RequiredArgsConstructor
 public class WebScreenshotCreator {
 
     public static final String FAILED_SCREENSHOTS_KEY = "error_screenshots";
@@ -37,6 +35,13 @@ public class WebScreenshotCreator {
     private final WebDriver driver;
     private final TestContext testContext;
     private final FileNameResolver fileNameResolver;
+
+    public WebScreenshotCreator(WebDriver driver, TestContext testContext, FileNameResolver fileNameResolver) {
+        log.warn("WebDriver: {}", driver);
+        this.driver = driver;
+        this.testContext = testContext;
+        this.fileNameResolver = fileNameResolver;
+    }
 
     public void createScreenshot(WebScreenshotType screenShotType) {
         if (isAlertPresent()) {
