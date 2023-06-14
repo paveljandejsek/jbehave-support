@@ -6,6 +6,8 @@ import org.aopalliance.intercept.MethodInvocation;
 import org.jbehavesupport.core.web.WebDriverFactory;
 import org.jbehavesupport.core.web.WebDriverFactoryResolver;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.aop.DynamicIntroductionAdvice;
 import org.springframework.aop.IntroductionInterceptor;
 import org.springframework.aop.ProxyMethodInvocation;
@@ -19,6 +21,7 @@ import org.springframework.util.ClassUtils;
 public class WebDriverDelegatingInterceptor extends IntroductionInfoSupport
     implements IntroductionInterceptor {
 
+    public static final Logger log = LoggerFactory.getLogger(WebDriverDelegatingInterceptor.class);
 
     private transient WebDriverFactoryResolver webDriverFactoryResolver;
 
@@ -47,6 +50,7 @@ public class WebDriverDelegatingInterceptor extends IntroductionInfoSupport
     public Object invoke(MethodInvocation mi) throws Throwable {
         if (isTakeScreenShotMethod(mi) || isQuitMethod(mi) || isCloseMethod(mi) || isSwitchToMethod(mi)) {
             if (driver == null) {
+                log.warn("driver is null while {}", mi);
                 return null;
             }
         } else if (isEqualsMethod(mi)) {
