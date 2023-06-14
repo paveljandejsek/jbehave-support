@@ -80,10 +80,10 @@ class TestConfig {
         return (WebDriver) proxyFactory.getProxy()
     }
 
-    @Bean
-    WebScreenshotCreator webScreenshotCreator(WebDriver driver, TestContext testContext, FileNameResolver fileNameResolver) {
-        return new WebScreenshotCreator(driver, testContext, fileNameResolver)
-    }
+//    @Bean
+//    WebScreenshotCreator webScreenshotCreator(WebDriver driver, TestContext testContext, FileNameResolver fileNameResolver) {
+//        return new WebScreenshotCreator(driver, testContext, fileNameResolver)
+//    }
 
     @Bean
     @Qualifier("HEALTHY")
