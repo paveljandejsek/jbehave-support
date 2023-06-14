@@ -1,5 +1,6 @@
 package org.jbehavesupport.core.web
 
+import groovy.util.logging.Slf4j
 import org.jbehavesupport.core.TestConfig
 import org.jbehavesupport.core.internal.web.WebScreenshotCreator
 import org.openqa.selenium.WebDriver
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 
+@Slf4j
 @ContextConfiguration(classes = TestConfig)
 class ScreenshotTestIT extends Specification {
 
@@ -20,6 +22,9 @@ class ScreenshotTestIT extends Specification {
         when:
 
         driver.get("http://localhost:11110")
+        def title = driver.getTitle();
+        log.warn("page title {}", title);
+
         webScreenshotCreator.createScreenshot(WebScreenshotType.MANUAL)
 
         then:
