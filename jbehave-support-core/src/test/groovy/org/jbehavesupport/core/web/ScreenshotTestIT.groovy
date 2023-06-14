@@ -25,7 +25,7 @@ class ScreenshotTestIT extends Specification {
 
     void takesScreenshot() {
         def webDrivers = applicationContext.getBeansOfType(WebDriver.class)
-        driver = webDrivers['webDriver']
+        driver = webScreenshotCreator.driver
 
         when:
 
