@@ -72,7 +72,6 @@ public class ChromeWebDriverFactory implements WebDriverFactory {
         }
 
         ChromeDriverService.Builder driverServiceBuilder = new ChromeDriverService.Builder();
-        driverServiceBuilder.withVerbose(true);
         if (browserPort != null) {
             driverServiceBuilder.usingPort(browserPort);
         } else {
