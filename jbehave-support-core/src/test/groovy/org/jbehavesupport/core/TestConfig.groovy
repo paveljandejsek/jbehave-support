@@ -72,13 +72,13 @@ class TestConfig {
         return new BytesCommand(testContext)
     }
 
-    @Bean
-    WebDriver driver(WebDriverFactoryResolver webDriverFactoryResolver) {
-        ProxyFactory proxyFactory = new ProxyFactory(WebDriver.class, new WebDriverDelegatingInterceptor(webDriverFactoryResolver))
-        proxyFactory.setProxyTargetClass(true)
-        proxyFactory.setTargetClass(webDriverFactoryResolver.resolveWebDriverFactory().getProxyClass())
-        return (WebDriver) proxyFactory.getProxy()
-    }
+//    @Bean
+//    WebDriver driver(WebDriverFactoryResolver webDriverFactoryResolver) {
+//        ProxyFactory proxyFactory = new ProxyFactory(WebDriver.class, new WebDriverDelegatingInterceptor(webDriverFactoryResolver))
+//        proxyFactory.setProxyTargetClass(true)
+//        proxyFactory.setTargetClass(webDriverFactoryResolver.resolveWebDriverFactory().getProxyClass())
+//        return (WebDriver) proxyFactory.getProxy()
+//    }
 
 //    @Bean
 //    WebScreenshotCreator webScreenshotCreator(WebDriver driver, TestContext testContext, FileNameResolver fileNameResolver) {

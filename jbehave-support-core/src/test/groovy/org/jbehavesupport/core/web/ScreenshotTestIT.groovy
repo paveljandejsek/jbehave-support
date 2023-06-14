@@ -5,6 +5,8 @@ import org.jbehavesupport.core.TestConfig
 import org.jbehavesupport.core.internal.web.WebScreenshotCreator
 import org.openqa.selenium.WebDriver
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.support.BeanDefinitionRegistry
+import org.springframework.context.ApplicationContext
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 
@@ -12,13 +14,19 @@ import spock.lang.Specification
 @ContextConfiguration(classes = TestConfig)
 class ScreenshotTestIT extends Specification {
 
-    @Autowired
+//    @Autowired
     WebDriver driver
 
     @Autowired
     WebScreenshotCreator webScreenshotCreator
 
+    @Autowired
+    ApplicationContext applicationContext
+
     void takesScreenshot() {
+        def webDrivers = applicationContext.getBeansOfType(WebDriver.class)
+        driver = webDrivers['webDriver']
+
         when:
 
         driver.get("http://localhost:11110")
