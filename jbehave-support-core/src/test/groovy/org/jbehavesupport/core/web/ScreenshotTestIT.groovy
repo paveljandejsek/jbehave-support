@@ -14,7 +14,7 @@ import spock.lang.Specification
 @ContextConfiguration(classes = TestConfig)
 class ScreenshotTestIT extends Specification {
 
-//    @Autowired
+    @Autowired
     WebDriver driver
 
     @Autowired
@@ -24,11 +24,11 @@ class ScreenshotTestIT extends Specification {
     ApplicationContext applicationContext
 
     void takesScreenshot() {
-        def webDrivers = applicationContext.getBeansOfType(WebDriver.class)
-        driver = webScreenshotCreator.driver
+//        def webDrivers = applicationContext.getBeansOfType(WebDriver.class)
+//        driver = webScreenshotCreator.driver
 
         when:
-
+        log.warn("WebDriver identityHashCode {}", System.identityHashCode(driver))
         driver.get("http://localhost:11110")
         log.warn("WebDriver: {}", driver);
         def title = driver.getTitle();

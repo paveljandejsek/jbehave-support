@@ -38,6 +38,7 @@ public class WebScreenshotCreator {
 
     public WebScreenshotCreator(WebDriver driver, TestContext testContext, FileNameResolver fileNameResolver) {
         log.warn("WebDriver: {}", driver);
+        log.warn("WebDriver identityHashCode {}", System.identityHashCode(driver));
         this.driver = driver;
         this.testContext = testContext;
         this.fileNameResolver = fileNameResolver;
