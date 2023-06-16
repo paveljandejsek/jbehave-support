@@ -10,7 +10,6 @@ import spock.lang.Specification
 
 import java.nio.file.Files
 
-@DirtiesContext
 class XmlReportIT extends Specification implements TestSupport {
 
     def "Test report index generation"() {
