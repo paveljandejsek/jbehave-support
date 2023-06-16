@@ -57,20 +57,20 @@ class TestConfig {
     @Autowired
     private ApplicationContext applicationContext
 
-    @PostConstruct
-    void configuration() {
-        applicationContext.getBean(ExamplesEvaluationTableConverter.class).setConfiguration(new MostUsefulConfiguration())
-    }
+//    @PostConstruct
+//    void configuration() {
+//        applicationContext.getBean(ExamplesEvaluationTableConverter.class).setConfiguration(new MostUsefulConfiguration())
+//    }
+//
+//    @Bean
+//    HealthCheckSteps healthCheckSteps(ConfigurableListableBeanFactory beanFactory) {
+//        return new HealthCheckSteps(beanFactory)
+//    }
 
-    @Bean
-    HealthCheckSteps healthCheckSteps(ConfigurableListableBeanFactory beanFactory) {
-        return new HealthCheckSteps(beanFactory)
-    }
-
-    @Bean
-    BytesCommand bytesCommand(TestContext testContext) {
-        return new BytesCommand(testContext)
-    }
+//    @Bean
+//    BytesCommand bytesCommand(TestContext testContext) {
+//        return new BytesCommand(testContext)
+//    }
 
 //    @Bean
 //    WebDriver driver(WebDriverFactoryResolver webDriverFactoryResolver) {

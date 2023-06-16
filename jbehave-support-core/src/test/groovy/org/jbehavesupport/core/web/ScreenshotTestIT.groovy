@@ -13,7 +13,7 @@ import spock.lang.Specification
 
 @Slf4j
 @ContextConfiguration(classes = TestConfig)
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
+//@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
 class ScreenshotTestIT extends Specification {
 
     @Autowired
