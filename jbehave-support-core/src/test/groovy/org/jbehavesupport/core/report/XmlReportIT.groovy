@@ -4,11 +4,13 @@ import groovy.xml.XmlSlurper
 import org.apache.commons.io.FileUtils
 import org.jbehavesupport.test.GenericStory
 import org.jbehavesupport.test.support.TestSupport
+import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.TestContextManager
 import spock.lang.Specification
 
 import java.nio.file.Files
 
+@DirtiesContext
 class XmlReportIT extends Specification implements TestSupport {
 
     def "Test report index generation"() {

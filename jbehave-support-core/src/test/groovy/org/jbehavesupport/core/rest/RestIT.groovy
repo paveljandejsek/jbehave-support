@@ -5,9 +5,11 @@ import org.jbehavesupport.core.TestConfig
 import org.jbehavesupport.core.TestContext
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpMethod
+import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 
+@DirtiesContext
 @ContextConfiguration(classes = TestConfig)
 class RestIT extends Specification {
 

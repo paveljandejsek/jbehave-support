@@ -1,8 +1,10 @@
 package org.jbehavesupport.core.rest
 
 import org.jbehavesupport.test.support.TestSupport
+import org.springframework.test.annotation.DirtiesContext
 import spock.lang.Specification
 
+@DirtiesContext
 class NegativeRestScenariosIT extends Specification implements TestSupport {
 
     def "Should validate REST response via success handlers"() {
