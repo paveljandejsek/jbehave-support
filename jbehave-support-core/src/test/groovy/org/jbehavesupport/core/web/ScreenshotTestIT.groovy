@@ -7,11 +7,13 @@ import org.openqa.selenium.WebDriver
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.support.BeanDefinitionRegistry
 import org.springframework.context.ApplicationContext
+import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 
 @Slf4j
 @ContextConfiguration(classes = TestConfig)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
 class ScreenshotTestIT extends Specification {
 
     @Autowired
