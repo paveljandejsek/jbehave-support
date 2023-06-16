@@ -9,6 +9,7 @@ import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 
+@DirtiesContext
 @ContextConfiguration(classes = TestConfig)
 class RestIT extends Specification {
 

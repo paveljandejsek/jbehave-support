@@ -10,6 +10,7 @@ import spock.lang.Specification
 
 import java.nio.file.Files
 
+// maybe this one?
 class XmlReportIT extends Specification implements TestSupport {
 
     def "Test report index generation"() {
