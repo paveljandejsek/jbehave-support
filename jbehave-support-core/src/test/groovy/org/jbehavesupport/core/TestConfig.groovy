@@ -57,10 +57,10 @@ class TestConfig {
     @Autowired
     private ApplicationContext applicationContext
 
-//    @PostConstruct
-//    void configuration() {
-//        applicationContext.getBean(ExamplesEvaluationTableConverter.class).setConfiguration(new MostUsefulConfiguration())
-//    }
+    @PostConstruct
+    void configuration() {
+        applicationContext.getBean(ExamplesEvaluationTableConverter.class).setConfiguration(new MostUsefulConfiguration())
+    }
 //
 //    @Bean
 //    HealthCheckSteps healthCheckSteps(ConfigurableListableBeanFactory beanFactory) {
