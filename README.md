@@ -5,6 +5,11 @@
 
 # jbehave-support
 
+## ⚠️ This project is currently unmaintained ⚠️
+**NOTICE:** This project is currently **unmaintained**, if you want to keep using it/contribute to it please get in touch with someone from the [EmbedITCZ](https://github.com/EmbedITCZ) organization.
+
+------
+
 Light extension to [JBehave](https://jbehave.org) using Spring framework.
 
 Provides several base steps for working with 
