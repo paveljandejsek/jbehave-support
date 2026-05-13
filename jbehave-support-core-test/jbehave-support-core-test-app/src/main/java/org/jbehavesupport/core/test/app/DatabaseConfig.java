@@ -2,6 +2,7 @@ package org.jbehavesupport.core.test.app;
 
 import java.sql.SQLException;
 
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.h2.tools.Server;
@@ -31,4 +32,5 @@ public class DatabaseConfig {
         }
         return h2Server;
     }
+
 }

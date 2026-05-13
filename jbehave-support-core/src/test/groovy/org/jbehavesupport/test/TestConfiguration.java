@@ -40,7 +40,6 @@ import java.util.HashMap;
 import static java.lang.Integer.parseInt;
 import static java.util.Collections.singletonMap;
 import static java.util.Objects.nonNull;
-import static org.jbehavesupport.core.ssh.SshSetting.builder;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -122,7 +121,7 @@ public class TestConfiguration {
         int port = parseInt(env.getProperty("ssh.port"));
         String logPath = env.getProperty("ssh.logPath");
 
-        SshSetting passwordSetting = builder()
+        SshSetting passwordSetting = SshSetting.builder()
             .hostname(hostname)
             .user(user)
             .password(env.getProperty("ssh.credentials.password"))
@@ -133,7 +132,7 @@ public class TestConfiguration {
         String keyPath = resourceLoader.getResource(env.getProperty("ssh.credentials.keyPath"))
             .getURL()
             .getFile();
-        SshSetting keySetting = builder()
+        SshSetting keySetting = SshSetting.builder()
             .hostname(hostname)
             .user(user)
             .keyPath(keyPath)
@@ -152,7 +151,7 @@ public class TestConfiguration {
     @Bean
     @Qualifier("LONG_REPORTABLE")
     SshTemplate longReportableSshTemplate() throws IOException {
-        SshSetting sshSetting = builder()
+        SshSetting sshSetting = SshSetting.builder()
             .hostname("fake hostname")
             .user("fake user")
             .password("asdf5684Daa")

@@ -1,4 +1,6 @@
 spring:
+  jackson:
+    constructor-detector: explicit-only
   datasource:
     port: 11112
     url: jdbc:h2:tcp://localhost:${spring.datasource.port}/mem:test;MODE=ORACLE
@@ -9,6 +11,7 @@ spring:
     user:
       name: sa
       password: sa
+
 
 server:
   port: 11110
