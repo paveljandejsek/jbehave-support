@@ -29,6 +29,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
+import org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClient;
@@ -109,8 +110,11 @@ public class RestServiceHandler {
     @Autowired
     private EqualsVerifier equalsVerifier;
 
+    @Autowired(required = false)
+    private OAuth2AuthorizedClientManager authorizedClientManager;
+
     protected final RestClient.Builder restClientBuilder = RestClient.builder();
-    protected final RestClientConfigurer restClientConfigurer = new RestClientConfigurer(restClientBuilder);
+    protected final RestClientConfigurer restClientConfigurer = new RestClientConfigurer(restClientBuilder, authorizedClientManager);
     private RestClient restClient;
 
     public RestServiceHandler(String url) {
